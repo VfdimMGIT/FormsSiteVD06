@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета пользователя</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: aquamarine;  /* Аквамариновый фон */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: white;  /* Белый фон формы для контраста */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        input, textarea {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;  /* Белый фон для блока результатов */
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Анкета пользователя</h1>
+    
+    <form method="POST">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="city">Город:</label>
+        <input type="text" id="city" name="city" required>
+        
+        <label for="hobby">Хобби:</label>
+        <textarea id="hobby" name="hobby" required></textarea>
+        
+        <label for="age">Возраст:</label>
+        <input type="number" id="age" name="age" required>
+        
+        <button type="submit">Отправить</button>
+    </form>
 
+    {% if submitted %}
+    <div class="result">
+        <h2>Ваши данные:</h2>
+        <p><strong>Имя:</strong> {{ name }}</p>
+        <p><strong>Город:</strong> {{ city }}</p>
+        <p><strong>Хобби:</strong> {{ hobby }}</p>
+        <p><strong>Возраст:</strong> {{ age }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
